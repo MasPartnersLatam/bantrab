@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roadmap Bantrab × +Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#F2F2EC; --card:#FFFFFF; --soft:#F7F7F3; --line:#D6D7D0; --line2:#EEEEE8;
+  --ink:#111312; --ink2:#3A3F3C; --muted:#4A4F4C; --lime:#C8F031;
+  --junta:#FCE9DE; --juntaInk:#B4400B; --alertInk:#8A2F05;
+  --display:'Space Grotesk','Helvetica Neue',Helvetica,sans-serif;
+  --body:'Manrope','Helvetica Neue',Helvetica,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased}
+button,select,input{font-family:inherit;color:inherit}
+button{cursor:pointer}
+button:disabled{opacity:.4;cursor:default}
+:focus-visible{outline:3px solid #2563EB;outline-offset:2px}
+img{max-width:100%}
+.wrap{max-width:1320px;margin:0 auto;padding:28px 20px 64px;display:flex;flex-direction:column;gap:24px}
+.brandbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;background:var(--card);border:1px solid var(--line);border-radius:14px}
+.logos{display:flex;align-items:center;gap:18px}
+.logos .x{font-size:20px;color:#5A5F5C}
+.titlebar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px}
+.eyebrow{margin:0;font-size:13px;font-weight:700;color:var(--muted)}
+h1{margin:0;font-family:var(--display);font-size:clamp(30px,4vw,40px);line-height:1.1}
+h2{margin:0;font-family:var(--display);font-size:24px}
+h3{margin:0;font-size:16px}
+.sub{margin:0;font-size:15px;color:var(--muted)}
+.status{padding:12px 18px;border-radius:999px;font-size:14px;font-weight:700}
+.status.ok{background:var(--ink);color:var(--lime)}
+.status.late{background:var(--junta);color:var(--alertInk)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.pill{min-height:44px;padding:0 20px;border-radius:999px;border:1px solid var(--ink);background:var(--card);font-size:15px;font-weight:600}
+.pill[aria-selected="true"]{background:var(--ink);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:16px}
+.cardhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 16px}
+.note{margin:0;font-size:14px;color:var(--muted)}
+.grid{display:grid;gap:16px}
+.g-auto280{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g-auto220{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.g-auto320{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g-auto240{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.hero{background:var(--ink);color:#fff;border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:12px}
+.hero .k{margin:0;font-size:13px;font-weight:700;color:var(--lime)}
+.hero p.big{margin:0;font-family:var(--display);font-size:clamp(20px,2.4vw,26px);line-height:1.3;font-weight:600;max-width:60ch}
+.tag{align-self:flex-start;padding:4px 12px;border-radius:999px;background:var(--line2);font-size:12px;font-weight:700}
+.tag.lime{background:var(--lime)}
+.project h3{font-size:19px}
+.project p{margin:0;font-size:14px;line-height:1.5;color:var(--ink2)}
+.project.main{border:2px solid var(--ink)}
+.stage{display:flex;flex-direction:column;gap:10px;padding:18px;border-radius:12px;background:var(--soft)}
+.stage .n{font-family:var(--display);font-size:13px;font-weight:700;color:var(--muted)}
+.stage .name{font-family:var(--display);font-size:20px;font-weight:700;letter-spacing:.04em}
+.stage .t{font-size:13px;font-weight:700}
+.stage p{margin:0;font-size:13px;line-height:1.45;color:var(--ink2)}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{padding:8px 14px;border-radius:999px;border:1px solid var(--line);font-size:13px;font-weight:600}
+ul.plain{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.45}
+/* Gantt */
+.scroll{overflow-x:auto}
+.gantt{min-width:1180px;display:flex;flex-direction:column}
+.grow{display:grid;grid-template-columns:240px minmax(0,1fr) 340px;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line2)}
+.ghead{align-items:end;padding:0 0 10px;border-bottom:1px solid #E4E5DF}
+.colh{font-size:12px;font-weight:700;color:var(--muted)}
+.weeks{display:grid;grid-template-columns:repeat(9,minmax(0,1fr))}
+.week{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:13px;font-weight:600}
+.week small{font-size:11px;font-weight:700;min-height:14px}
+.week.junta{color:var(--juntaInk)}
+.pname{font-family:var(--display);font-size:16px;font-weight:700;letter-spacing:.04em}
+.prange{font-size:13px;color:var(--ink2)}
+.pcad{font-size:12px;color:var(--muted)}
+.track{position:relative;height:44px;background:var(--soft);border-radius:8px}
+.track .jz{position:absolute;top:0;bottom:0;left:66.6667%;width:11.1111%;background:var(--junta)}
+.track .today{position:absolute;top:0;bottom:0;left:0;width:2px;background:var(--ink)}
+.bar{position:absolute;top:7px;height:30px;border:1px solid var(--ink);border-radius:6px;display:flex;align-items:center;padding:0 10px;font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;transition:left .25s ease,width .25s ease,background .2s}
+.ctrls{display:flex;gap:6px;align-items:center}
+.ctrls select{height:44px;min-width:116px;padding:0 10px;border-radius:10px;border:1px solid #C9CAC3;background:#fff;font-size:14px;font-weight:600}
+.ib{width:44px;height:44px;border-radius:10px;border:1px solid #C9CAC3;background:#fff;display:flex;align-items:center;justify-content:center}
+.ib.alt{background:var(--soft)}
+.legend{display:flex;flex-wrap:wrap;gap:10px 24px;font-size:13px;color:var(--ink2);align-items:center}
+.legend label,.legend span{display:flex;align-items:center;gap:8px}
+.legend input[type=color]{width:28px;height:28px;padding:0;border:1px solid var(--ink);border-radius:6px;background:none;cursor:pointer}
+.sw{width:16px;height:16px;border-radius:4px}
+/* lists */
+ul.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+ul.checks li{display:grid;grid-template-columns:44px minmax(0,1fr) auto auto;gap:12px;align-items:center;min-height:52px;border-bottom:1px solid var(--line2)}
+ul.checks input{width:22px;height:22px;margin:0 auto;accent-color:var(--ink);cursor:pointer}
+ul.checks label{font-size:15px;font-weight:600;cursor:pointer}
+ul.checks li.done label{text-decoration:line-through;color:#5A5F5C}
+.owner{padding:4px 12px;border-radius:999px;border:1px solid var(--ink);font-size:12px;font-weight:700}
+.date{font-size:14px;font-weight:700;text-align:right;min-width:90px}
+.date.fixed{color:var(--juntaInk)}
+.progress{height:10px;border-radius:999px;background:var(--line2);overflow:hidden}
+.progress div{height:100%;background:var(--ink);transition:width .3s}
+/* docs */
+.row{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
+.side{flex:1 1 360px;min-width:0}
+.mainc{flex:999 1 560px;min-width:0}
+.drop{display:flex;flex-direction:column;align-items:center;gap:8px;padding:26px 20px;border:2px dashed #A9AAA3;border-radius:12px;background:var(--soft);text-align:center;cursor:pointer}
+.drop strong{font-size:16px}
+.drop span{font-size:13px;line-height:1.45;color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.doc{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:60px;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:#fff;text-align:left;width:100%}
+.doc[aria-pressed="true"]{border:2px solid var(--ink);background:var(--soft)}
+.doc .dn{display:flex;flex-direction:column;gap:2px;min-width:0}
+.doc .dn b{font-size:14px}
+.doc .dn small{font-size:12px;color:var(--muted)}
+.st{flex-shrink:0;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700;background:var(--line2)}
+.st.ok{background:var(--lime)}
+.box{display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:12px;background:var(--soft)}
+.box.warm{background:var(--junta)}
+.box ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.45}
+.changes{display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:12px;border:2px solid var(--ink)}
+.change{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line2)}
+.change b{font-size:15px}
+.change span{font-size:13px;line-height:1.45;color:var(--ink2)}
+.btn{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--ink);font-size:14px;font-weight:700;background:var(--lime)}
+.btn.dark{background:var(--ink);color:#fff}
+.btn.done{background:var(--line2)}
+.chat{display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:12px;background:var(--soft)}
+.q{align-self:flex-end;max-width:80%;padding:12px 16px;border-radius:14px;background:var(--ink);color:#fff;font-size:15px;line-height:1.45}
+.a{align-self:flex-start;max-width:85%;display:flex;flex-direction:column;gap:8px;padding:14px 16px;border-radius:14px;background:#fff;border:1px solid var(--line)}
+.a p{margin:0;font-size:15px;line-height:1.55}
+.askrow{display:flex;flex-wrap:wrap;gap:10px}
+.askrow input{flex:1 1 320px;min-width:0;height:48px;padding:0 16px;border-radius:12px;border:1px solid #A9AAA3;font-size:15px;background:#fff}
+.next{background:var(--ink);color:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.next .k{margin:0;font-size:13px;font-weight:700;color:var(--lime)}
+.next .big{margin:0;font-family:var(--display);font-size:22px;font-weight:700;line-height:1.25}
+.next p{margin:0;font-size:14px;line-height:1.5;color:#E4E5DF}
+.reset{min-height:44px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:13px;font-weight:600}
+@media (max-width:640px){
+  ul.checks li{grid-template-columns:44px minmax(0,1fr);row-gap:4px;padding:8px 0}
+  ul.checks li .owner,ul.checks li .date{grid-column:2;justify-self:start;text-align:left}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:20px">
+    <div class="brandbar">
+      <div class="logos">
+        <img src="assets/logo-partners.png" alt="+Partners" style="height:26px;width:auto">
+        <span class="x" aria-hidden="true">×</span>
+        <img src="assets/logo-bantrab.png" alt="Bantrab" style="height:36px;width:auto">
+      </div>
+      <button type="button" class="reset" data-action="reset">Restablecer datos</button>
+    </div>
+    <div class="titlebar">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <p class="eyebrow">Innovation Sprint: Ecosistema financiero digital</p>
+        <h1>Roadmap del proyecto</h1>
+        <p class="sub">5 de octubre al 4 de diciembre de 2026, semana <span id="weekNum">1</span> de 9</p>
+      </div>
+      <div id="status" class="status" role="status"></div>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Secciones" id="tabs"></nav>
+
+  <main id="view"></main>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- Datos base ---------- */
+  var W = 9;
+  var MONDAYS = ['5 oct','12 oct','19 oct','26 oct','2 nov','9 nov','16 nov','23 nov','30 nov'];
+  var FRIDAYS = ['9 oct','16 oct','23 oct','30 oct','6 nov','13 nov','20 nov','27 nov','4 dic'];
+  var START = new Date(2026, 9, 5); // lunes 5 de octubre de 2026
+  var SUBS = {6:'Junta',7:'Jóvenes'};
+  var STORE_KEY = 'bantrab-roadmap-v1';
+
+  var TABS = [
+    {id:'enfoque',label:'Enfoque'},
+    {id:'roadmap',label:'Roadmap'},
+    {id:'docs',label:'Documentos'},
+    {id:'weekC',label:'Para Cristhian, esta semana'},
+    {id:'weekP',label:'Para +Partners, esta semana'}
+  ];
+
+  var STAGES = [
+    {n:'01',name:'DEFINIR',t:'1 semana, 1–2 sesiones de 90′',b:'comparte la visión del ecosistema y lo ya construido (YoLo, App).',p:'facilita, documenta el punto de llegada y los criterios de éxito.'},
+    {n:'02',name:'INVESTIGAR',t:'3 semanas, 3–4 reuniones de 60′',b:'comparte lo ya explorado y datos internos.',p:'stress test de la estrategia y benchmark de modelos de ecosistema.'},
+    {n:'03',name:'IDEAR',t:'1 semana, 1 taller de 2–3 h',b:'participa con Producto, Tecnología y Riesgo.',p:'facilita el mapa de lo que existe y lo que falta.'},
+    {n:'04',name:'CONECTAR',t:'3 semanas, 2–3 reuniones de 60′',b:'evalúa las alternativas de alianza.',p:'conversaciones con players y scouting de proveedores.'},
+    {n:'05',name:'ACELERAR',t:'Variable, con seguimiento',b:'presenta la narrativa a la Junta.',p:'acompaña la presentación y el ajuste posterior.'}
+  ];
+
+  var DOCS = [
+    {id:'kickoff',name:'Kickoff, 30 de septiembre',kind:'Transcript',from:'+Partners',analyzed:true,
+     summary:'Bantrab quiere validar y enriquecer su estrategia digital y su visión de ecosistema antes de la Junta del 16 al 20 de noviembre, donde también participa McKinsey. Jóvenes es el primer segmento nuevo y se lanza a fines de noviembre. Cristhian pide preguntas difíciles, casos concretos y validación de terceros.',
+     agreements:['Una sesión semanal y trabajo asincrónico por WhatsApp.','Reuniones por Teams; Bantrab suma un Project Manager.','Cristhian comparte el material de estrategia, foto del banco y jóvenes.','+Partners manda las preguntas por escrito para adelantar.'],
+     questions:['¿Cómo entra nuestro aporte en la presentación de McKinsey?','¿Qué KPIs concretos mide la estrategia: clientes, principalidad, uso digital?','¿Qué pasa con YoLo frente a la nueva app?','¿Cuánto está dispuesto a invertir el banco y en qué plazo?']},
+    {id:'estrategia',name:'Estrategia digital y visión de ecosistema',kind:'Documento',from:'Bantrab',expect:'Es la base del stress test: visión, pilares (productos, canales, segmentos) y metas.'},
+    {id:'foto',name:'Foto del banco: clientes, canales y productos',kind:'Documento',from:'Bantrab',expect:'Da el punto de partida: base de clientes, uso de canales digitales y mix de productos.'},
+    {id:'jovenes',name:'Estrategia de jóvenes (lanzamiento de noviembre)',kind:'Documento',from:'Bantrab',expect:'Propuesta de valor, marca, metas y aliados del lanzamiento.'},
+    {id:'juntaCtx',name:'Contexto de la Junta del 16 al 20 de noviembre',kind:'Documento',from:'Bantrab',expect:'Formato, quién presenta y qué se espera que decida la Junta.'}
+  ];
+
+  var CHANGES = [
+    {id:'c1',title:'Correr CONECTAR en paralelo con INVESTIGAR',detail:'Pasa al 19 oct – 6 nov. Cristhian pidió validación de terceros para llevar a la Junta.',phase:'conectar',start:2,dur:3},
+    {id:'c2',title:'ACELERAR pasa a ser la preparación de la Junta',detail:'Arranca el 9 nov: paquete listo el 13/11, Junta del 16 al 20 y cierre con el backlog 2027.',phase:'acelerar',start:5,dur:3},
+    {id:'c3',title:'Nuevo hito fijo: Junta Directiva del 16 al 20 de noviembre',detail:'Es el entregable real del sprint. Participa McKinsey.'},
+    {id:'c4',title:'Nuevo hito fijo: lanzamiento de jóvenes a fin de noviembre',detail:'Compite por el tiempo de Cristhian en las últimas semanas.'}
+  ];
+
+  var PRESETS = [
+    {q:'¿Qué espera Bantrab al final de los dos meses?',a:'Llegar a la Junta del 16 al 20 de noviembre con la estrategia digital y la visión de ecosistema validadas y enriquecidas con casos y terceros. Cristhian pidió que le hagamos las preguntas difíciles y le marquemos dónde la estrategia queda floja.',src:'Kickoff 30/9, min 3–10 y 44–47'},
+    {q:'¿Qué rol tiene McKinsey?',a:'McKinsey ayuda a alinear la visión de la Junta y a exponer los tres caminos: transformar las capacidades actuales, construir un banco digital de cero o comprar. Nuestro foco es la visión y el ecosistema, y podemos sumar aprendizajes de mercado sobre la ruta.',src:'Kickoff 30/9, min 7–10'},
+    {q:'¿Qué KPIs quieren mover?',a:'Diversificar productos, canales y segmentos; dejar de ser un banco de paso y ganar principalidad; crecer la base de clientes, que hoy está por debajo del millón. Para jóvenes, Cristhian mencionó 100.000 clientes en menos de dos meses.',src:'Kickoff 30/9, min 17–22 y 44–47'}
+  ];
+
+  var TASKSETS = {
+    weekC:{title:'Pendientes de Cristhian',sideTitle:'En qué está +Partners esta semana',
+      side:['Batería de preguntas del stress test.','Mapa inicial de casos para el benchmark.','Lista de players para la etapa Conectar.'],
+      tasks:[
+        {id:'c-1',name:'Confirmar la sesión del miércoles y mandar la invitación por Teams',due:'Lun 5 oct'},
+        {id:'c-2',name:'Enviar la estrategia digital y la visión de ecosistema',due:'Miér 7 oct'},
+        {id:'c-3',name:'Enviar la foto del banco: clientes, canales y productos',due:'Miér 7 oct'},
+        {id:'c-4',name:'Enviar la estrategia de jóvenes del lanzamiento',due:'Miér 7 oct'},
+        {id:'c-5',name:'Habilitar el note-taker de +Partners en Teams',due:'Miér 7 oct'},
+        {id:'c-6',name:'Nombrar al Project Manager de Bantrab',due:'Vie 9 oct'}]},
+    weekP:{title:'Pendientes de +Partners',sideTitle:'Lo que esperamos de Bantrab',
+      side:['Material de estrategia, foto del banco y jóvenes.','Confirmación de la sesión del miércoles.','Nombre del Project Manager.'],
+      tasks:[
+        {id:'p-1',name:'Mandar a Cristhian la batería de preguntas del stress test',due:'Mar 6 oct'},
+        {id:'p-2',name:'Preparar la agenda de la sesión Definir',due:'Mar 6 oct'},
+        {id:'p-3',name:'Compartir lo relevante de la llamada con Banco Plata',due:'Miér 7 oct'},
+        {id:'p-4',name:'Armar el mapa inicial de casos para el benchmark',due:'Vie 9 oct'},
+        {id:'p-5',name:'Definir la lista de players a contactar',due:'Vie 9 oct'}]}
+  };
+
+  function initialState() {
+    return {
+      view:'enfoque', doc:'kickoff', askIdx:0, asked:'',
+      done:{kickoff:true}, tasks:{}, applied:{},
+      colors:{'Conjunto':'#C8F031','+Partners':'#111312','Bantrab':'#14A3B1'},
+      phases:[
+        {id:'definir',name:'DEFINIR',owner:'Conjunto',start:0,dur:1,cadence:'1–2 sesiones de 90′',ms:'Objetivo y criterios de éxito acordados'},
+        {id:'investigar',name:'INVESTIGAR',owner:'+Partners',start:1,dur:3,cadence:'3–4 reuniones de 60′',ms:'Semáforo de la estrategia y benchmark de casos'},
+        {id:'idear',name:'IDEAR',owner:'Conjunto',start:4,dur:1,cadence:'1 taller de 2–3 h',ms:'Decisiones y trade-offs para la Junta'},
+        {id:'conectar',name:'CONECTAR',owner:'+Partners',start:5,dur:3,cadence:'2–3 reuniones de 60′',ms:'Conversaciones con 3–4 players'},
+        {id:'acelerar',name:'ACELERAR',owner:'Conjunto',start:8,dur:1,cadence:'Seguimiento semanal',ms:'Backlog 2027 y propuesta de continuidad'}
+      ]
+    };
+  }
+
+  /* ---------- Estado con guardado local ---------- */
+  var state = load();
+  function load() {
+    try {
+      var raw = localStorage.getItem(STORE_KEY);
+      if (raw) { var s = JSON.parse(raw); if (s && s.phases) return Object.assign(initialState(), s); }
+    } catch (e) {}
+    return initialState();
+  }
+  function save() { try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {} }
+  function set(patch) { Object.assign(state, patch); save(); render(); }
+
+  /* ---------- Utilidades ---------- */
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function inkFor(hex) {
+    var h = (hex || '#000000').replace('#','');
+    if (h.length === 3) h = h.split('').map(function (c) { return c + c; }).join('');
+    var n = parseInt(h, 16), r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
+    return (0.299*r + 0.587*g + 0.114*b) > 150 ? '#111312' : '#FFFFFF';
+  }
+  function currentWeek() {
+    var d = Math.floor((new Date() - START) / (7*24*3600*1000));
+    return Math.max(0, Math.min(W - 1, d));
+  }
+  function phase(id) { return state.phases.filter(function (p) { return p.id === id; })[0]; }
+  var ICON = {
+    left:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>',
+    right:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>',
+    minus:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>',
+    plus:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>',
+    upload:'<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>'
+  };
+
+  /* ---------- Hitos ---------- */
+  function milestones() {
+    var acel = phase('acelerar');
+    var list = [{id:'kickoff',name:'Kickoff',owner:'Conjunto',date:'30 sep',key:-1}];
+    state.phases.forEach(function (p, i) {
+      var end = p.start + p.dur - 1;
+      list.push({id:p.id,name:p.ms,owner:p.owner,date:FRIDAYS[end],key:end + i*0.01});
+    });
+    list.push({id:'paquete',name:'Paquete para la Junta listo',owner:acel.owner,date:FRIDAYS[acel.start],key:acel.start + 0.005});
+    if (state.applied.c3) list.push({id:'juntaDir',name:'Junta Directiva: visión digital, con McKinsey',owner:'Bantrab',date:'16–20 nov',key:6.5,fixed:true});
+    if (state.applied.c4) list.push({id:'lanzamiento',name:'Lanzamiento del ecosistema jóvenes',owner:'Bantrab',date:'Fin de nov',key:7.5,fixed:true});
+    return list.sort(function (a, b) { return a.key - b.key; });
+  }
+
+  /* ---------- Vistas ---------- */
+  function viewEnfoque() {
+    return '' +
+    '<section style="display:flex;flex-direction:column;gap:24px">' +
+      '<div class="hero"><p class="k">Objetivo del acompañamiento</p>' +
+      '<p class="big">Acompañar a Bantrab en la ejecución de sus prioridades estratégicas, con el expertise de +Partners en innovación financiera y acceso a referentes y empresas líderes, para generar benchmarks, sumar aprendizajes y acelerar su roadmap de innovación.</p></div>' +
+      '<div style="display:flex;flex-direction:column;gap:12px"><h2>Qué trabajamos en estos dos meses</h2><div class="grid g-auto280">' +
+        '<div class="card project main"><span class="tag lime">Proyecto principal</span><h3>Estrategia digital y visión de ecosistema</h3><p>Poner a prueba y enriquecer la visión con preguntas difíciles, casos y players, para llegar a la Junta del 16 al 20 de noviembre con una narrativa y una hoja de ruta sólidas.</p></div>' +
+        '<div class="card project"><span class="tag">Proyecto secundario</span><h3>Ecosistema jóvenes</h3><p>Revisar el lanzamiento de fin de noviembre contra casos de la región: adquisición, finanzas embebidas y metas.</p></div>' +
+        '<div class="card project"><span class="tag">Resultado</span><h3>Backlog 2027</h3><p>Los gaps que detectemos se convierten en el backlog priorizado y en los próximos sprints.</p></div>' +
+      '</div></div>' +
+      '<div class="card"><h2>Cómo trabajamos: las 5 etapas del sprint</h2><div class="grid g-auto220">' +
+        STAGES.map(function (g) {
+          return '<div class="stage"><span class="n">' + g.n + '</span><span class="name">' + g.name + '</span><span class="t">' + esc(g.t) + '</span>' +
+                 '<p><strong>Bantrab:</strong> ' + esc(g.b) + '</p><p><strong>+Partners:</strong> ' + esc(g.p) + '</p></div>';
+        }).join('') +
+      '</div><div class="chips">' +
+        ['Sesión semanal','Trabajo asincrónico por WhatsApp','Reuniones por Teams','Project Manager de Bantrab','Esfuerzo de Bantrab: 8–10 encuentros, ~10–12 h'].map(function (c) { return '<span class="chip">' + c + '</span>'; }).join('') +
+      '</div></div>' +
+      '<div class="grid g-auto320">' +
+        '<div class="card"><h2 style="font-size:22px">Alcance: qué incluye</h2><ul class="plain">' +
+          '<li>Stress test de la estrategia digital, con semáforo de gaps.</li><li>Benchmark de modelos de ecosistema comparables.</li><li>3 a 4 conversaciones con players de la región.</li><li>Decisiones y trade-offs para llevar a la Junta.</li><li>Insumos para la presentación del 16 al 20 de noviembre.</li><li>Backlog 2027 priorizado.</li></ul></div>' +
+        '<div class="card"><h2 style="font-size:22px">Fuera de este sprint</h2><ul class="plain">' +
+          '<li>La definición de la ruta (transformar, construir o comprar), que trabaja McKinsey. Aportamos aprendizajes de mercado.</li><li>El desarrollo de la nueva app.</li><li>Marketplace, Revolut, Academy y viaje 2027: candidatos a continuidad.</li></ul></div>' +
+      '</div>' +
+    '</section>';
+  }
+
+  function viewRoadmap() {
+    var cw = currentWeek();
+    var weeks = MONDAYS.map(function (m, i) {
+      var sub = i === cw ? 'Hoy' : (SUBS[i] || '');
+      return '<div class="week' + (i === 6 ? ' junta' : '') + '"><small>' + sub + '</small>' + m + '</div>';
+    }).join('');
+    var todayLeft = (cw / W * 100).toFixed(4) + '%';
+    var rows = state.phases.map(function (p) {
+      var end = p.start + p.dur - 1;
+      var fill = state.colors[p.owner];
+      var opts = ['Conjunto','+Partners','Bantrab'].map(function (o) {
+        return '<option value="' + o + '"' + (o === p.owner ? ' selected' : '') + '>' + o + '</option>';
+      }).join('');
+      return '<div class="grow">' +
+        '<div style="display:flex;flex-direction:column;gap:3px"><span class="pname">' + p.name + '</span><span class="prange">' + MONDAYS[p.start] + ' – ' + FRIDAYS[end] + '</span><span class="pcad">' + esc(p.cadence) + '</span></div>' +
+        '<div class="track"><div class="jz"></div><div class="today" style="left:' + todayLeft + '"></div>' +
+          '<div class="bar" style="left:' + (p.start/W*100).toFixed(4) + '%;width:' + (p.dur/W*100).toFixed(4) + '%;background:' + fill + ';color:' + inkFor(fill) + '">' + (p.dur === 1 ? '1 sem' : p.dur + ' sem') + '</div></div>' +
+        '<div class="ctrls">' +
+          '<select aria-label="Responsable de ' + p.name + '" data-action="owner" data-id="' + p.id + '">' + opts + '</select>' +
+          '<button type="button" class="ib" aria-label="Adelantar ' + p.name + ' una semana" data-action="move" data-id="' + p.id + '" data-ds="-1" data-dd="0"' + (p.start === 0 ? ' disabled' : '') + '>' + ICON.left + '</button>' +
+          '<button type="button" class="ib" aria-label="Atrasar ' + p.name + ' una semana" data-action="move" data-id="' + p.id + '" data-ds="1" data-dd="0"' + (p.start + p.dur >= W ? ' disabled' : '') + '>' + ICON.right + '</button>' +
+          '<button type="button" class="ib alt" aria-label="Acortar ' + p.name + ' una semana" data-action="move" data-id="' + p.id + '" data-ds="0" data-dd="-1"' + (p.dur === 1 ? ' disabled' : '') + '>' + ICON.minus + '</button>' +
+          '<button type="button" class="ib alt" aria-label="Alargar ' + p.name + ' una semana" data-action="move" data-id="' + p.id + '" data-ds="0" data-dd="1"' + (p.start + p.dur >= W ? ' disabled' : '') + '>' + ICON.plus + '</button>' +
+        '</div></div>';
+    }).join('');
+    var legend = ['Conjunto','+Partners','Bantrab'].map(function (k) {
+      return '<label><input type="color" value="' + state.colors[k] + '" data-action="color" data-owner="' + k + '" aria-label="Color de ' + k + '">' + (k === 'Conjunto' ? 'Trabajo conjunto' : k) + '</label>';
+    }).join('');
+    var ms = milestones();
+    var doneCount = ms.filter(function (m) { return state.done[m.id]; }).length;
+    var items = ms.map(function (m) {
+      var done = !!state.done[m.id], c = state.colors[m.owner];
+      return '<li class="' + (done ? 'done' : '') + '">' +
+        '<input type="checkbox" id="ms-' + m.id + '" data-action="ms" data-id="' + m.id + '"' + (done ? ' checked' : '') + '>' +
+        '<label for="ms-' + m.id + '">' + esc(m.name) + '</label>' +
+        '<span class="owner" style="background:' + c + ';color:' + inkFor(c) + '">' + m.owner + '</span>' +
+        '<span class="date' + (m.fixed ? ' fixed' : '') + '">' + m.date + '</span></li>';
+    }).join('');
+    return '' +
+    '<section style="display:flex;flex-direction:column;gap:24px">' +
+      '<div class="card"><div class="cardhead"><h2>Cronograma</h2><p class="note">Mové cada etapa, cambiá su duración o su responsable. Los hitos se recalculan solos.</p></div>' +
+        '<div class="scroll"><div class="gantt">' +
+          '<div class="grow ghead"><span class="colh">Etapa</span><div class="weeks">' + weeks + '</div><span class="colh">Responsable, mover y duración</span></div>' +
+          rows +
+        '</div></div>' +
+        '<div class="legend">' + legend +
+          '<span><span class="sw" style="background:var(--junta);border:1px solid var(--juntaInk)"></span>Semana de la Junta (16–20 nov)</span>' +
+          '<span><span style="width:2px;height:16px;background:var(--ink)"></span>Hoy</span></div>' +
+      '</div>' +
+      '<div class="card"><div class="cardhead"><h2>Hitos</h2><p class="note">' + doneCount + ' de ' + ms.length + ' cumplidos, ordenados según el cronograma</p></div>' +
+        '<ul class="checks">' + items + '</ul></div>' +
+    '</section>';
+  }
+
+  function viewDocs() {
+    var list = DOCS.map(function (d) {
+      return '<button type="button" class="doc" data-action="doc" data-id="' + d.id + '" aria-pressed="' + (state.doc === d.id) + '">' +
+        '<span class="dn"><b>' + esc(d.name) + '</b><small>' + d.kind + ', envía ' + d.from + '</small></span>' +
+        '<span class="st' + (d.analyzed ? ' ok' : '') + '">' + (d.analyzed ? 'Analizado' : 'Pendiente') + '</span></button>';
+    }).join('');
+    var sd = DOCS.filter(function (d) { return d.id === state.doc; })[0] || DOCS[0];
+    var analysis;
+    if (sd.analyzed) {
+      var allApplied = CHANGES.every(function (c) { return state.applied[c.id]; });
+      analysis = '<p style="margin:0;font-size:16px;line-height:1.55">' + esc(sd.summary) + '</p>' +
+        '<div class="grid g-auto240">' +
+          '<div class="box"><h3 style="font-size:15px">Acuerdos</h3><ul>' + sd.agreements.map(function (a) { return '<li>' + esc(a) + '</li>'; }).join('') + '</ul></div>' +
+          '<div class="box warm"><h3 style="font-size:15px">Preguntas abiertas</h3><ul>' + sd.questions.map(function (q) { return '<li>' + esc(q) + '</li>'; }).join('') + '</ul></div>' +
+        '</div>' +
+        '<div class="changes"><div class="cardhead" style="align-items:center"><h3>Cambios propuestos al cronograma y a los hitos</h3>' +
+          '<button type="button" class="btn dark" data-action="applyAll"' + (allApplied ? ' disabled' : '') + '>Aplicar todos</button></div>' +
+          CHANGES.map(function (c) {
+            var ap = !!state.applied[c.id];
+            return '<div class="change"><div style="display:flex;flex-direction:column;gap:3px"><b>' + esc(c.title) + '</b><span>' + esc(c.detail) + '</span></div>' +
+              '<button type="button" class="btn' + (ap ? ' done' : '') + '" data-action="apply" data-id="' + c.id + '"' + (ap ? ' disabled' : '') + '>' + (ap ? 'Aplicado' : 'Aplicar') + '</button></div>';
+          }).join('') +
+        '</div>';
+    } else {
+      analysis = '<div class="box" style="padding:24px;gap:12px"><p style="margin:0;font-size:16px;font-weight:700">Todavía no llegó</p>' +
+        '<p style="margin:0;font-size:15px;line-height:1.5;color:var(--ink2)">' + esc(sd.expect) + '</p>' +
+        '<p style="margin:0;font-size:14px;line-height:1.5;color:var(--muted)">Cuando se cargue, acá aparece el resumen, los acuerdos, las preguntas abiertas y los cambios que propone al cronograma.</p></div>';
+    }
+    var ask = state.askIdx >= 0 ? PRESETS[state.askIdx] :
+      {q:state.asked,a:'Todavía no hay un modelo conectado. Cuando lo conectemos, Claude va a responder acá a partir de todas las reuniones y documentos cargados.',src:'base de consultas'};
+    var presets = PRESETS.map(function (p, i) {
+      return '<button type="button" class="pill" style="background:' + (state.askIdx === i ? 'var(--lime)' : '#fff') + ';font-size:14px" data-action="preset" data-i="' + i + '">' + esc(p.q) + '</button>';
+    }).join('');
+    return '' +
+    '<section style="display:flex;flex-direction:column;gap:24px"><div class="row">' +
+      '<div class="card side"><h2>Reuniones y documentos</h2>' +
+        '<label class="drop" for="doc-upload">' + ICON.upload + '<strong>Subir transcript o documento</strong>' +
+        '<span>Se analiza al cargarlo, propone cambios al cronograma y a los hitos, y se suma a la base de consultas.</span></label>' +
+        '<input id="doc-upload" class="sr" type="file" data-action="upload">' +
+        '<p id="uploadMsg" class="note" role="status"></p>' +
+        '<div style="display:flex;flex-direction:column;gap:8px">' + list + '</div></div>' +
+      '<div class="card mainc"><div style="display:flex;flex-direction:column;gap:6px"><p class="eyebrow">Análisis</p><h2>' + esc(sd.name) + '</h2></div>' + analysis + '</div>' +
+    '</div>' +
+    '<div class="card"><div class="cardhead"><h2>Preguntale al proyecto</h2><p class="note">Base de consultas: 1 transcript y 0 documentos. Cada respuesta cita su fuente.</p></div>' +
+      '<div style="display:flex;flex-wrap:wrap;gap:8px">' + presets + '</div>' +
+      '<div class="chat"><div class="q">' + esc(ask.q) + '</div><div class="a"><p>' + esc(ask.a) + '</p><span class="tag lime">Fuente: ' + esc(ask.src) + '</span></div></div>' +
+      '<form class="askrow" data-action="ask"><label class="sr" for="ask-input">Tu pregunta</label>' +
+        '<input id="ask-input" type="text" placeholder="Ej.: ¿Qué dijo Cristhian sobre la nueva app?" autocomplete="off">' +
+        '<button type="submit" class="btn dark" style="border-radius:12px;min-height:48px">Preguntar</button></form>' +
+    '</div></section>';
+  }
+
+  function viewWeek(key) {
+    var set = TASKSETS[key];
+    var done = set.tasks.filter(function (t) { return state.tasks[t.id]; }).length;
+    var pct = Math.round(done / set.tasks.length * 100);
+    var items = set.tasks.map(function (t) {
+      var d = !!state.tasks[t.id];
+      return '<li class="' + (d ? 'done' : '') + '" style="grid-template-columns:44px minmax(0,1fr) auto">' +
+        '<input type="checkbox" id="task-' + t.id + '" data-action="task" data-id="' + t.id + '"' + (d ? ' checked' : '') + '>' +
+        '<label for="task-' + t.id + '">' + esc(t.name) + '</label><span style="font-size:13px;font-weight:700;color:var(--ink2)">' + t.due + '</span></li>';
+    }).join('');
+    return '' +
+    '<section class="row">' +
+      '<div class="card mainc"><div class="cardhead"><h2>' + set.title + '</h2><p class="note">Semana del 5 al 9 de octubre: ' + done + ' de ' + set.tasks.length + ' listos</p></div>' +
+        '<div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + pct + '"><div style="width:' + pct + '%"></div></div>' +
+        '<ul class="checks">' + items + '</ul></div>' +
+      '<div class="side" style="display:flex;flex-direction:column;gap:16px">' +
+        '<div class="next"><p class="k">Próxima sesión</p><p class="big">Miércoles 7 de octubre, de 14 a 16 h (Guatemala)</p>' +
+          '<p>Por Teams, a confirmar. Etapa Definir: Bantrab presenta su visión y acordamos los criterios de éxito para la Junta.</p></div>' +
+        '<div class="card"><h3>' + set.sideTitle + '</h3><ul class="plain" style="font-size:14px">' + set.side.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>' +
+      '</div>' +
+    '</section>';
+  }
+
+  /* ---------- Render ---------- */
+  function render() {
+    document.getElementById('weekNum').textContent = currentWeek() + 1;
+    var acel = phase('acelerar');
+    var late = acel.start > 5;
+    var st = document.getElementById('status');
+    st.className = 'status ' + (late ? 'late' : 'ok');
+    st.textContent = late ? 'Atención: el paquete para la Junta queda después del 13/11' : 'En fecha: paquete para la Junta el ' + FRIDAYS[acel.start];
+
+    document.getElementById('tabs').innerHTML = TABS.map(function (t) {
+      return '<button type="button" class="pill" role="tab" aria-selected="' + (state.view === t.id) + '" data-action="tab" data-id="' + t.id + '">' + t.label + '</button>';
+    }).join('');
+
+    var v = state.view, html;
+    if (v === 'roadmap') html = viewRoadmap();
+    else if (v === 'docs') html = viewDocs();
+    else if (v === 'weekC' || v === 'weekP') html = viewWeek(v);
+    else html = viewEnfoque();
+    document.getElementById('view').innerHTML = html;
+  }
+
+  /* ---------- Acciones ---------- */
+  function move(id, ds, dd) {
+    state.phases = state.phases.map(function (p) {
+      if (p.id !== id) return p;
+      var s = p.start + ds, d = p.dur + dd;
+      if (d < 1 || s < 0 || s + d > W) return p;
+      return Object.assign({}, p, {start:s, dur:d});
+    });
+    save(); render();
+  }
+  function applyChange(id) {
+    var c = CHANGES.filter(function (x) { return x.id === id; })[0];
+    if (c.phase) state.phases = state.phases.map(function (p) { return p.id === c.phase ? Object.assign({}, p, {start:c.start, dur:c.dur}) : p; });
+    state.applied[id] = true;
+  }
+
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-action]');
+    if (!el || el.tagName === 'INPUT' || el.tagName === 'SELECT' || el.tagName === 'FORM') return;
+    var a = el.getAttribute('data-action'), id = el.getAttribute('data-id');
+    if (a === 'tab') set({view:id});
+    else if (a === 'move') move(id, +el.getAttribute('data-ds'), +el.getAttribute('data-dd'));
+    else if (a === 'doc') set({doc:id});
+    else if (a === 'apply') { applyChange(id); save(); render(); }
+    else if (a === 'applyAll') { CHANGES.forEach(function (c) { if (!state.applied[c.id]) applyChange(c.id); }); save(); render(); }
+    else if (a === 'preset') set({askIdx:+el.getAttribute('data-i'), asked:''});
+    else if (a === 'reset') { if (confirm('¿Restablecer el cronograma, los hitos y las tareas a como estaban al inicio?')) { state = initialState(); save(); render(); } }
+  });
+
+  document.addEventListener('change', function (e) {
+    var el = e.target, a = el.getAttribute('data-action'), id = el.getAttribute('data-id');
+    if (a === 'owner') { state.phases = state.phases.map(function (p) { return p.id === id ? Object.assign({}, p, {owner:el.value}) : p; }); save(); render(); }
+    else if (a === 'color') { state.colors[el.getAttribute('data-owner')] = el.value; save(); render(); }
+    else if (a === 'ms') { state.done[id] = el.checked; save(); render(); }
+    else if (a === 'task') { state.tasks[id] = el.checked; save(); render(); }
+    else if (a === 'upload') {
+      var f = el.files && el.files[0];
+      var msg = document.getElementById('uploadMsg');
+      if (f && msg) msg.textContent = 'Recibimos “' + f.name + '”. El análisis automático se activa cuando conectemos el modelo.';
+    }
+  });
+
+  document.addEventListener('submit', function (e) {
+    var form = e.target;
+    if (form.getAttribute('data-action') !== 'ask') return;
+    e.preventDefault();
+    var input = form.querySelector('input');
+    var q = (input.value || '').trim();
+    if (q) set({askIdx:-1, asked:q});
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
